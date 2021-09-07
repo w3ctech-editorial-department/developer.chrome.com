@@ -11,11 +11,9 @@ const PLACEHOLDER_IMG =
 /** @type AuthorsData */
 const authorsData = require('./authorsData.json');
 const authorsYaml =
-  /** @type I18nAuthors */ (
-    /** @type TODO */ yaml.load(
-      fs.readFileSync(path.join(__dirname, 'i18n', 'authors.yaml'), 'utf-8')
-    )
-  ) || {};
+  /** @type {I18nAuthors} */ (yaml.load(
+    fs.readFileSync(path.join(__dirname, 'i18n', 'authors.yaml'), 'utf-8')
+  )) || {};
 
 /** @type PostsData */
 const postsData = {
@@ -49,10 +47,7 @@ const fileContents = files
   .map(file => {
     const filePath = path.join(process.cwd(), file);
     const fileData = fs.readFileSync(filePath, 'utf8');
-    const data = /** @type FrontMatterData */ (
-      /** @type TODO */ matter(fileData).data
-    );
-
+    const data = /** @type {FrontMatterData} */ (matter(fileData).data);
     const regexGroups = /\/site\/(?<locale>[a-z]{2})(?<url>\/.*\/).*\.md$/.exec(
       file
     )?.groups;
@@ -65,7 +60,9 @@ const fileContents = files
       url,
     };
   })
-  .filter(f => f.date && f.url && f.title && !f.permalink)
+  .filter(
+    f => f.date instanceof Date && f.url && f.title && f.permalink === undefined
+  )
   .sort((a, b) => a.date.getTime() - b.date.getTime());
 
 for (const fileContent of fileContents) {

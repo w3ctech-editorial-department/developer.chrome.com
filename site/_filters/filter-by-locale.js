@@ -10,12 +10,14 @@ module.exports = function filterByLocale(fMData, locale = defaultLocale) {
   /** @type {Map<string, FrontMatterData>} */
   const filteredFrontMatter = new Map();
   for (const element of fMData) {
-    if (filteredFrontMatter.has(element.url) && element.locale === locale) {
+    if (element.locale === locale) {
+      // If we find the element with the right locale, this will always win.
       filteredFrontMatter.set(element.url, element);
     } else if (
       !filteredFrontMatter.has(element.url) &&
       [locale, defaultLocale].includes(element.locale)
     ) {
+      // If we don't have a better language, accept one from the default locale.
       filteredFrontMatter.set(element.url, element);
     }
   }
