@@ -179,8 +179,10 @@ chrome.runtime.onConnect.addListener(function(devToolsConnection) {
     // assign the listener function to a variable so we can remove it later
     var devToolsListener = function(message, sender, sendResponse) {
         // Inject a content script into the identified tab
-        chrome.scripting.executeScript(message.tabId,
-            { file: message.scriptToInject });
+        chrome.scripting.executeScript({
+          target: {tabId: message.tabId},
+          files: [message.scriptToInject]
+    });
     }
     // add the listener
     devToolsConnection.onMessage.addListener(devToolsListener);
@@ -271,7 +273,7 @@ extensionPanel.onShown.addListener(function (extPanelWindow) {
 
 ### Messaging from content scripts to the DevTools page {: #content-script-to-devtools }
 
-Messaging between the DevTools page and content scripts is indirect, by way of the serice worker.
+Messaging between the DevTools page and content scripts is indirect, by way of the service worker.
 
 When sending a message _to_ a content script, the service worker can use the
 [`tabs.sendMessage()`][api-scripting-sendmessage] method, which directs a message to the content
