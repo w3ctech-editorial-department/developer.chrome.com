@@ -16,10 +16,7 @@ tags:
 <!--image/dPDCek3EhZgLQPGtEG3y0fTn4v82/gctGASDKBFTUtOQqVq2H.png  -->
 
 {% Partial 'devtools/banner.md' %}
-
-*There is no 'What's new in DevTools' video for this release, but you can watch this quick recap of the recent features.*
-
-{% YouTube id='CrSmjooOEiE' %}
+{% YouTube id='e8tl_yp5BQg' %}
 
 <!-- $contentStart -->
 
@@ -138,6 +135,24 @@ Additionally, the ID of the interaction has been moved from the tooltip to **Sum
 {# https://chromium.googlesource.com/devtools/devtools-frontend/+/7e33a26c738bcd848aacd140248d285b9db31704 #}
 
 Chromium issues: [1432512](https://crbug.com/1432512), [1432509](https://crbug.com/1432509).
+
+### The Web Vitals track moved {: #web-vitals }
+
+The **Performance** panel has removed the following tracks:
+
+- The **Web Vitals** track. Instead, see the relevant timings in the **Timings** track on hover.
+- The **Long Tasks** subtrack. You can already find such tasks in the [**Main** track](/docs/devtools/performance/reference/#long-tasks) shaded [in red and with a red triangle](/blog/new-in-devtools-83/#long-tasks).
+
+Both the **Web Vitals** and **Long Tasks** tracks contained information duplicated elsewhere. They were also non-interactive compared to their more fully featured alternatives which provide more detailed information when clicked.
+
+{% Img src="image/NJdAV9UgKuN8AhoaPBquL7giZQo1/Wu4ePOcdvtKHyvy0PK96.png", alt="Before and after moving the Web Vitals to the Timings track.", width="800", height="613" %}
+
+Additionally, the **Experiences** track was renamed to **Layout Shifts** to more accurately reflect its usage.
+
+Learn more about [Web Vitals](https://web.dev/vitals/).
+
+{# https://chromium.googlesource.com/devtools/devtools-frontend/+/41b7043de413b2a87f6a8dc8a90ac1a744912400 #}
+{# https://chromium.googlesource.com/devtools/devtools-frontend/+/26306da9622791b255b12c9c0deeac0a0d4a07b8 #}
 
 ## JavaScript Profiler deprecation: Phase three {: #js-profiler }
 
