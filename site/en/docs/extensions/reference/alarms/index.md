@@ -17,6 +17,39 @@ To use the `chrome.alarms` API, declare the `"alarms"` permission in the [manife
 }
 ```
 
+## Concepts and usage
+
+### Device sleep
+
+The behavior of alarms when a device goes to sleep is currently undefined. An alarm will never fire
+early but may fire significantly later than expected if a device went to sleep after an alarm was
+scheduled.
+
+### Persistence
+
+Alarms generally persist until an extension is updated. However, this is not guaranteed, and alarms
+may be cleared when the browser is restarted. Consequently, consider setting a value in storage
+when an alarm is created, and then ensure it exists each time your service worker starts up. For example:
+
+```js
+const STORAGE_KEY = "user-preference-alarm-enabled";
+
+async function checkAlarmState() {
+  const { alarmEnabled } = await chrome.storage.get(STORAGE_KEY);
+
+  if (alarmEnabled) {
+    const alarm = await chrome.alarms.get("my-alarm");
+
+    if (!alarm) {
+      await chrome.alarms.create({ periodInMinutes: 1 });
+    }
+  }
+}
+
+checkAlarmState();
+```
+
+
 ## Examples
 
 The following examples show how to use and respond to an alarm. To try this API,
@@ -45,7 +78,9 @@ chrome.runtime.onInstalled.addListener(async ({ reason }) => {
 
 {% Aside %}
 
-Starting in Chrome 117, the number of active alarms is limited to 500. Once this limit is reached, `chrome.alarms.create()` will fail. When using a callback, [`chrome.runtime.lastError`][last-error] will be set. When using promises, the promise will be rejected.
+**Chrome 120:** Starting in Chrome 120, the minimum alarm interval has been reduced from 1 minute to 30 seconds. For an alarm to trigger in 30 seconds, set `periodInMinutes: 0.5`. 
+
+**Chrome 117:** Starting in Chrome 117, the number of active alarms is limited to 500. Once this limit is reached, `chrome.alarms.create()` will fail. When using a callback, [`chrome.runtime.lastError`][last-error] will be set. When using promises, the promise will be rejected.
 
 {% endAside %}
 

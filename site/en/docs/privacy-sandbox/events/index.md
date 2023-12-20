@@ -6,7 +6,7 @@ subhead: >
 description: >
  Information and resources for online and in-person events.
 date: 2022-08-19
-updated: 2023-01-13
+updated: 2023-11-15
 authors:
  - samdutton
  - mihajlija
@@ -37,6 +37,21 @@ announcements are also made on [this issue](https://github.com/WICG/attribution-
 * [Topics](https://github.com/patcg-individual-drafts/topics/issues/115#issue-1442748960)
 
 ## Past events
+
+### Protected Audience webinars
+**Series #1: Protected Audience fundamentals**  
+
+September 27, 2023     
+* [Deck](https://goo.gle/ps-protected-audience-webinar-1-deck)   
+* [AMER Recording](https://goo.gle/ps-protected-audience-webinar-1-recording-amer)
+* [EMEA Recording](https://goo.gle/ps-protected-audience-webinar-1-recording-emea)  
+
+**Series #2: Sequential auction setup**  
+
+November 7, 2023     
+* [Deck](https://goo.gle/ps-protected-audience-webinar-2-deck)    
+* [AMER Recording](https://goo.gle/ps-protected-audience-webinar-2-recording-amer)
+* [EMEA Recording](https://goo.gle/ps-protected-audience-webinar-2-recording-emea)  
 
 ### First-Party Sets Office Hours {: #oh06}
 

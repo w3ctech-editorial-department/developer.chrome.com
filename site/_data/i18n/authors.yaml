@@ -427,7 +427,7 @@ agektmr:
   title:
     en: 'Eiji Kitamura'
   description:
-    en: 'Developer Advocate for identity, security, privacy and payment on the web.'
+    en: 'Developer Advocate, Google Chrome'
 titouan:
   title:
     en: 'Titouan Rigoudy'
@@ -1296,6 +1296,16 @@ helencho:
     en: Helen Cho
   description:
     en: 'Helen is a product manager at Google.'
+benkelly:
+  title:
+    en: Ben Kelly
+  description:
+    en: 'Ben is an engineering manager at Google.'
+taofiksulaiman:
+  title:
+    en: Taofik Sulaiman
+  description:
+    en: 'Taofik is a product manager at Google.'
 kaustubhag:
   title:
     en: Kaustubha Govind
@@ -1587,3 +1597,8 @@ saurabhrajpal:
     en: Saurabh Rajpal
   description:
     en: Web Ecosystem Consultant.
+garimamimani:
+  title:
+    en: Garima Mimani
+  description:
+    en: Senior Technical Solutions Consultant
